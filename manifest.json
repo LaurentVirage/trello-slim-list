@@ -4,7 +4,7 @@
     "capabilities": ["board-buttons"],
     "connectors": {
       "iframe": {
-        "url": "https://yourdomain.com/powerup.html"
+        "url": "https://laurentvirage.github.io/trello-slim-list/powerup.html"
       }
     }
   }
