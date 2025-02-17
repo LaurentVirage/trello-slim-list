@@ -4,6 +4,7 @@ window.TrelloPowerUp.initialize({
             text: "Collapse Lists by Default",
             callback: function (t) {
                 collapseAllLists();
+                console.write("Trello Slim List Power-Up loaded");
             }
         }];
     }
@@ -21,5 +22,3 @@ function collapseAllLists() {
 
 // Auto-collapse on board load
 document.addEventListener("DOMContentLoaded", collapseAllLists);
-
-console.write("Trello Slim List Power-Up loaded");
