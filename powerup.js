@@ -1,27 +1,25 @@
 window.TrelloPowerUp.initialize({
     'board-buttons': function (t, opts) {
-      return [{
-        text: "Slim Lists",
-        callback: function (t) {
-          return t.get('board', 'private', 'slimListId')
-            .then(listId => {
-              if (!listId) {
-                alert("No list set to be slim yet!");
-                return;
-              }
-  
-              let style = document.createElement("style");
-              style.innerHTML = `
-                [data-list-id="${listId}"] {
-                  width: 10px !important;
-                  min-width: 10px !important;
-                  overflow: hidden !important;
-                  transition: width 0.3s ease-in-out;
-                }
-              `;
-              document.head.appendChild(style);
-            });
-        }
-      }];
+        return [{
+            text: "Collapse Lists by Default",
+            callback: function (t) {
+                collapseAllLists();
+            }
+        }];
     }
-  });
+});
+
+// Function to collapse all lists
+function collapseAllLists() {
+    setTimeout(() => {
+        document.querySelectorAll('.list-header-extras-menu').forEach(menu => {
+            let collapseButton = menu.querySelector('[aria-label="Collapse list"]');
+            if (collapseButton) collapseButton.click();
+        });
+    }, 2000); // Delay to ensure Trello has loaded the lists
+}
+
+// Auto-collapse on board load
+document.addEventListener("DOMContentLoaded", collapseAllLists);
+
+console.write("Trello Slim List Power-Up loaded");
