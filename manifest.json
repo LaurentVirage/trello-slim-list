@@ -1,0 +1,10 @@
+{
+    "apiVersion": 1,
+    "name": "Slim List Power-Up",
+    "capabilities": ["board-buttons"],
+    "connectors": {
+      "iframe": {
+        "url": "https://yourdomain.com/powerup.html"
+      }
+    }
+  }
